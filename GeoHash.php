@@ -207,7 +207,8 @@ class GeoHash
      */
     private function getLevelRange($level)
     {
-        $range = pow(2, 2 * (self::LEVEL_MAX - $level));
+        // 最小的格子边上是 0.6m，级别值越大格子的边长就越大；
+        $range = pow(2, 2 * (self::LEVEL_MAX - $level)) * 0.6;
 
         return $range;
     }
